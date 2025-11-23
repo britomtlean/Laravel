@@ -4,22 +4,35 @@
 
 @section('content')
 
-        <h1>Hello World</h1>
+    <div id="search-container" class="col-md-12">
+        <h1>Busque um evento</h1>
+        <form action="">
+            <input type="text" name="" id="search" class="form-control" placeholder="Procurar...">
+        </form>
+    </div>
 
-        @if($nome == "leaN")
-            <p>Nome: leaN</p>
-        @else
-            <p>Outro nome</p>
-        @endif
+    <div id="events-conteiner" class="col-md-12">
+        <h2>Próximos eventos</h2>
+        <p>Veja os eventos dos próximos dias</p>
+
+        <div id="divcards-container" class="row">
+            @foreach ($events as $array)
+                <div class="card col-md-3">
+                    <img style="height: 180px" src="/img/evento-bk.jpeg" alt="{{ $array->title }}">
+                    <div class="card-body">
+                        <div class="card-date">10/10/2020</div>
+                        <h5 class="card-title">{{ $array->title }}</h5>
+                        <p class="card-partipants">X Participantes</p>
+                        <a href="" class="btn btn-primary">Saber mais</a>
+                    </div>
+                    <p>{{ $array->title }} -- {{ $array->description }}</p>
+                </div>
+            @endforeach
+        </div>
+
+    </div>
 
 
-        @foreach($array as $arr)
-            <h3>{{$arr}}</h3>
-        @endforeach
 
-
-        @php
-            echo "Hello Blade";
-        @endphp
 
 @endsection

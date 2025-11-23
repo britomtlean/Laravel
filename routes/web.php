@@ -2,18 +2,23 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+//importação usando namespace
+use App\Http\Controllers\TesteController;
 
-    $nome = "leaN";
-    $idade = 24;
 
-    $array = array(1,2,3,4,5,6);
-    return view(
-        'welcome',
-        [
-        'nome' => $nome,
-        'idade' => $idade,
-        'array' => $array 
-        ]
-    );
-});
+//Rota principal
+Route::get('/',[TesteController::class, 'index'] ); //utilizando controller
+
+
+
+
+//Rota para testes
+Route::get('/teste', [TesteController::class, 'teste']);
+
+
+
+
+//Rota dinamica
+Route::get('/produtos/{id?}', [TesteController::class, 'routerId']);
+
+Route::post('/events', [TesteController::class, 'store']);

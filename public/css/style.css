@@ -1,62 +1,155 @@
-*{
+* {
     box-sizing: border-box;
     padding: 0;
-    margin: 0 auto;
+    margin: 0;
     font-family: sans-serif;
     list-style-type: none;
     outline: none;
-    overflow-y: hidden;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    overflow-x: hidden;
 }
 
-body{
+/* ESSENCIAL para sticky footer */
+html,
+body {
+    height: 100%;
+}
+
+body {
     min-height: 100vh;
     width: 100vw;
-    background-color: dimgrey;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2vh;
 }
 
+/* HEADER FIXO */
 header {
     height: 10vh;
     width: 100%;
     padding: 5vh 10vw;
-    background-color: rgb(42, 127, 255);
+    background-color: rgb(38, 50, 66);
     color: white;
 
-    position: absolute;
+    position: fixed;
     top: 0;
+    left: 0;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    & li{
-        display: inline-block;
-        margin: 0 1.2rem;
-        padding: 0.4rem 0;
-        
-    }
-
-        & li:hover{
-            color: yellow;
-            cursor: pointer;
-            border-bottom: 2px solid yellow;
-    }
+    z-index: 3;
 }
 
+header li {
+    display: inline-block;
+    margin: 0 1.2rem;
+    padding: 0.4rem 0;
+}
+
+header li:hover {
+    color: yellow;
+    cursor: pointer;
+    border-bottom: 2px solid yellow;
+}
+
+/* CONTEÚDO */
+section {
+    width: 100%;
+    min-height: 80vh;
+    padding: 12vh 10vw 10vh; /* deixa espaço para header e footer */
+    flex-wrap: wrap;
+}
+
+/* FOOTER FIXO EMBAIXO */
 footer {
     height: 10vh;
     width: 100%;
-    padding: 5vh;
-    background-color: rgb(42, 127, 255);
+    background-color: rgb(38, 50, 66);
     color: white;
 
-    position: absolute;
+    position: fixed;
     bottom: 0;
+    left: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#search-container {
+    background-image: url("https://mulheresnaproducao.com.br/wp-content/uploads/2021/02/conceito-para-eventos-show-1.png");
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    padding: 300px;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden; /* garante que nada vaze */
+    text-align: center;
+}
+
+#search-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px); /* aplica o desfoque */
+    background: rgba(255, 255, 255, 0); /* leve camada para destacar o blur */
+    z-index: 1;
+}
+
+#search-container * {
+    position: relative;
+    z-index: 2; /* garante que o texto fique acima do blur */
+}
+
+#search-container form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#events-conteiner {
+    padding: 50px;
+}
+
+#events-conteiner h2 {
+    margin-bottom: 10px;
+}
+
+#events-conteiner p {
+    color: #757575;
+    margin-bottom: 30px;
+    padding: 20px 0;
+}
+
+#events-conteiner .card {
+    width: 30%;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+#events-conteiner img {
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+}
+
+#divcards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#create-event-container {
+    min-height: 80vh;
+    width: 100%;
+    padding: 10%;
+}
+
+#create-event-container form {
+    width: 50%;
+}
+
+#create-event-container .form-group{
+    margin: 20px 0;
 }
