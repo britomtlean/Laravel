@@ -10,4 +10,11 @@ class Event extends Model
 {
     //manipular o nome da tabela a ser usada
     //protected $table = 'meu_nome_personalizado';
+
+
+    protected $casts = [ //Indica que essa coluna receba um objeto json
+        'items' => 'array'
+    ];
+
+    protected $dates = ['date'];
 }

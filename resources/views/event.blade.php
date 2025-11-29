@@ -25,13 +25,19 @@
                     <ion-icon style="font-size: 1.5rem" name="star-outline"></ion-icon> Dono do evento
                 </p>
 
-                <a class="btn btn-primary" href="">Confirmar Presença</a>
+                <a style="margin-bottom: 2rem" class="btn btn-primary" href="">Confirmar Presença</a>
+                <h3>O evento conta com:</h3>
+                <ul id="items-list">
+                    @foreach ($event->items as $item)
+                        <li><ion-icon style="color: orange; font-size: 1.2rem" name="play-outline"></ion-icon> {{ $item }}</li>
+                    @endforeach
+                </ul>
             </div>
 
-            <div class="col-md-12" id="description-container">
+            <div style="margin-top: 1.5rem;" class="col-md-12" id="description-container">
                 <h3>Sobre o evento:</h3>
-                <p class="event-description"> <ion-icon style="font-size: 1.5rem"
-                        name="document-outline"></ion-icon>{{ $event->description }}</p>
+                <p class="event-description"> <ion-icon style="font-size: 1.2rem; color:orange"
+                        name="document-outline"></ion-icon> {{ $event->description }}</p>
             </div>
         </div>
     </div>
